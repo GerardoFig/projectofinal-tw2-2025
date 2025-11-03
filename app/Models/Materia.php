@@ -7,19 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Materia extends Model
 {
-   # use HasFactory;
-       public $timestamps = false;
+    //use HasFactory;
+    public $timestamps = false;
 
-       protected $fillable = [
+    protected $fillable = [
         'nombre'
-       ];
+    ];
 
-       public function materiasXUsuarios(){
-        return $this->hasMany(MateriasXUsuarios::class, 'materias_id');
-       }
+    public function materiasXUsuarios(){
+        return $this->hasMany(MateriasXUsuario::class, 'materias_id');
+    }
 
-       public function users(){
-        return $this->belongsToMany(User::class, 'materias_x_usuarios', 'materias_id', 'user_id');
-       }
-
+    public function users(){
+        return $this->belongsToMany(User::class, 'materias_x_usuarios', 'materias_id', 'users_id');
+    }
 }
