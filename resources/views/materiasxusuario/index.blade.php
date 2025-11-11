@@ -3,7 +3,7 @@
 @section('titulo', 'Gestionar Materias - ' . $usuario->username)
 
 @push('CSS')
-
+<!-- DataTables CSS -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
 @endpush
 
@@ -11,6 +11,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
+            <!-- Header -->
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div>
                     <h2 class="fw-bold text-primary mb-1">
@@ -35,6 +36,8 @@
                     </a>
                 </div>
             </div>
+
+            <!-- Tabla de Materias Asignadas -->
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
@@ -63,13 +66,14 @@
                                     </td>
                                     <td>
                                         <div class="btn-group" role="group">
-
+                                            <!-- Botón Agregar Calificación -->
                                             <button type="button" class="btn btn-sm btn-outline-success" 
                                                     onclick="agregarCalificacion({{ $usuario->id }}, {{ $asignacion->materia->id }})"
                                                     title="Agregar calificación">
                                                 <i class="bi bi-plus-square"></i>
                                             </button>
                                             
+                                            <!-- Botón Eliminar Materia -->
                                             <button type="button" class="btn btn-sm btn-outline-danger" 
                                                     onclick="eliminarMateria({{ $asignacion->id }}, '{{ $asignacion->materia->nombre }}')"
                                                     title="Eliminar materia">
@@ -118,13 +122,13 @@
                         <div class="alert alert-info">
                             <i class="bi bi-info-circle me-2"></i>
                             <strong>Información:</strong>
-                             solo se muestran las materias que no están asignadas a este usuario.
+                             Solo se muestran las materias que no están asignadas a este usuario.
                         </div>
                     @else
                         <div class="alert alert-info">
                             <i class="bi bi-exclamation-triangle me-2"></i>
                             <strong>Sin materias disponibles:</strong>
-                             todas las materias ya están asignadas a este usuario o no hay materias creadas en el sistema.
+                             Todas las materias ya están asignadas a este usuario o no hay materias creadas en el sistema.
                         </div>
                     @endif
                 </div>
@@ -145,14 +149,13 @@
 @endsection
 
 @push('JS')
-
+<!-- DataTables JS -->
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 
 <script>
     function agregarCalificacion(usuarioId, materiaId){
-            window.location.href = `{{ url('materiasxusuario') }}/${usuarioId}/materia/${materiaId}/calificaciones`;
-
+        window.location.href = `{{ url('materiasxusuario') }}/${usuarioId}/materia/${materiaId}/calificaciones`;
     }
     
     function eliminarMateria(asignacionId, nombreMateria){
@@ -167,7 +170,7 @@
             cancelButtonText: "Cancelar"
         }).then((result) => {
             if (result.isConfirmed) {
-         
+                // Crear formulario para eliminar
                 const form = $("<form>", {
                     "method": "POST",
                     'action': `{{ url('materiasxusuario') }}/${asignacionId}/desasignar`
@@ -255,7 +258,7 @@
                     Swal.fire({
                         icon: "error",
                         title: "Error",
-                        text: xhr.responseJSON?.message || "ccurrio un problema al asignar la materia",
+                        text: xhr.responseJSON?.message || "Ocurrió un problema al asignar la materia",
                         confirmButtonText: "Aceptar"
                     });
                 }
