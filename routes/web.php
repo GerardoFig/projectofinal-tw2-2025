@@ -37,5 +37,11 @@ Route::middleware('auth')->group(function(){
     Route::get('materiasxusuario/{id}', [MateriasXUsuarioController::class, 'index'])->name('materiasxusuario.index');
     Route::post('materiasxusuario/{id}/asignar', [MateriasXUsuarioController::class, 'asignar'])->name('materiasxusuario.asignar');
     Route::delete('materiasxusuario/{asignacion_id}/desasignar', [MateriasXUsuarioController::class, 'desasignar'])->name('materiasxusuario.desasignar');
+    Route::get('materiasxusuario/{usuario_id}/materia/{materia_id}/calificaciones', [CalificacionController::class, 'index'])->name('calificaciones.index');  
+    Route::get('materiasxusuario/{usuario_id}/materia/{materia_id}/calificaciones/create', [CalificacionController::class, 'create'])->name('calificaciones.create');  
+    Route::post('materiasxusuario/{usuario_id}/materia/{materia_id}/calificaciones', [CalificacionController::class, 'store'])->name('calificaciones.store');  
+    Route::get('calificaciones/{id}/edit', [CalificacionController::class, 'edit'])->name('calificaciones.edit');  
+    Route::put('calificaciones/{id}', [CalificacionController::class, 'update'])->name('calificaciones.update');  
+    Route::delete('calificaciones/{id}', [CalificacionController::class, 'destroy'])->name('calificaciones.destroy');
 
 });
