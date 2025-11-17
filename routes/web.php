@@ -28,7 +28,7 @@ Route::get('/', [AccesoController::class, 'mostrarFormulario'])->name('acceso');
 Route::post('/login', [AccesoController::class, 'iniciarSesion'])->name('login');
 Route::post('/logout', [AccesoController::class, 'cerrarSesion'])->name('logout');
 
-// Rutas protegidas
+
 Route::middleware('auth')->group(function(){
     Route::resource('usuarios', UsuarioController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
 

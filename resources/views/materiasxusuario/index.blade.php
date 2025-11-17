@@ -37,7 +37,7 @@
                 </div>
             </div>
 
-            <!-- Tabla de Materias Asignadas -->
+            
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
@@ -66,14 +66,14 @@
                                     </td>
                                     <td>
                                         <div class="btn-group" role="group">
-                                            <!-- Botón Agregar Calificación -->
+                                            
                                             <button type="button" class="btn btn-sm btn-outline-success" 
                                                     onclick="agregarCalificacion({{ $usuario->id }}, {{ $asignacion->materia->id }})"
                                                     title="Agregar calificación">
                                                 <i class="bi bi-plus-square"></i>
                                             </button>
                                             
-                                            <!-- Botón Eliminar Materia -->
+                                            
                                             <button type="button" class="btn btn-sm btn-outline-danger" 
                                                     onclick="eliminarMateria({{ $asignacion->id }}, '{{ $asignacion->materia->nombre }}')"
                                                     title="Eliminar materia">
@@ -170,7 +170,7 @@
             cancelButtonText: "Cancelar"
         }).then((result) => {
             if (result.isConfirmed) {
-                // Crear formulario para eliminar
+                
                 const form = $("<form>", {
                     "method": "POST",
                     'action': `{{ url('materiasxusuario') }}/${asignacionId}/desasignar`

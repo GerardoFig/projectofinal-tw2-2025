@@ -6,7 +6,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <!-- Header -->
+            
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div>
                     <h2 class="fw-bold text-warning mb-1">
@@ -23,7 +23,7 @@
                 </div>
             </div>
 
-            <!-- Formulario -->
+            
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
@@ -39,7 +39,7 @@
                                 @method('PUT')
                                 
                                 <div class="row">
-                                    <!-- Username -->
+                                    
                                     <div class="col-md-6 mb-3">
                                         <label for="username" class="form-label fw-semibold">
                                             <i class="bi bi-person text-primary me-1"></i>
@@ -57,7 +57,7 @@
                                         @enderror
                                     </div>
                                     
-                                    <!-- Email -->
+                                    
                                     <div class="col-md-6 mb-3">
                                         <label for="email" class="form-label fw-semibold">
                                             <i class="bi bi-envelope text-primary me-1"></i>
@@ -76,7 +76,7 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Tipo de Usuario -->
+                                
                                 <div class="mb-4">
                                     <label for="tipos_id" class="form-label fw-semibold">
                                         <i class="bi bi-person-badge text-primary me-1"></i>
@@ -105,7 +105,7 @@
                                     @enderror
                                 </div>
                                 
-                                <!-- Cambiar Contraseña -->
+                                
                                 <div class="card mb-4">
                                     <div class="card-header bg-light">
                                         <div class="form-check">
@@ -118,7 +118,7 @@
                                     </div>
                                     <div class="card-body" id="passwordSection" style="display: none;">
                                         <div class="row">
-                                            <!-- Nueva Contraseña -->
+                                            
                                             <div class="col-md-6 mb-3">
                                                 <label for="password" class="form-label fw-semibold">
                                                     <i class="bi bi-lock text-primary me-1"></i>
@@ -139,7 +139,7 @@
                                                 @enderror
                                             </div>
                                             
-                                            <!-- Confirmar Nueva Contraseña -->
+                                            
                                             <div class="col-md-6 mb-3">
                                                 <label for="password_confirmation" class="form-label fw-semibold">
                                                     <i class="bi bi-lock-fill text-primary me-1"></i>
@@ -160,7 +160,7 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Botones -->
+                                
                                 <div class="d-flex justify-content-end gap-2">
                                     <a href="{{ route('usuarios.index') }}" class="btn btn-secondary">
                                         <i class="bi bi-x-circle me-1"></i>

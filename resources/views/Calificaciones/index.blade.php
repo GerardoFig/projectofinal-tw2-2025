@@ -11,7 +11,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <!-- Header -->
+            
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div>
                     <h2 class="fw-bold text-primary mb-1">
@@ -44,7 +44,7 @@
                 </div>
             </div>
 
-            <!-- Tabla de Calificaciones -->
+            
             <div class="card">
                 <div class="card-header bg-primary text-white">
                     <h5 class="mb-0">
@@ -94,14 +94,14 @@
                                         @if(auth()->user()->tipo->tipo === 'admin' || auth()->user()->tipo->tipo === 'profesor')
                                             <td>
                                                 <div class="btn-group" role="group">
-                                                    <!-- Botón Editar -->
+                                                    
                                                     <button type="button" class="btn btn-sm btn-outline-warning" 
                                                             onclick="editarCalificacion({{ $calificacion->id }}, {{ $calificacion->calificacion }})"
                                                             title="Editar calificación">
                                                         <i class="bi bi-pencil-square"></i>
                                                     </button>
                                                     
-                                                    <!-- Botón Eliminar -->
+                                                    
                                                     <button type="button" class="btn btn-sm btn-outline-danger" 
                                                             onclick="eliminarCalificacion({{ $calificacion->id }}, '{{ $calificacion->calificacion }}')"
                                                             title="Eliminar calificación">
@@ -134,7 +134,7 @@
     </div>
 </div>
 
-<!-- Modal para Agregar Calificación -->
+
 @if(auth()->user()->tipo->tipo === 'admin' || auth()->user()->tipo->tipo === 'profesor')
 <div class="modal fade" id="modalAgregarCalificacion" tabindex="-1" aria-labelledby="modalAgregarCalificacionLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -170,7 +170,7 @@
                         </div>
                     </div>
                     
-                    <!-- Preview del nivel -->
+                    
                     <div class="mb-3" id="previewNivel" style="display: none;">
                         <label class="form-label fw-semibold">Nivel de aprobación:</label>
                         <div id="nivelPreview"></div>
@@ -191,7 +191,7 @@
     </div>
 </div>
 
-<!-- Modal para Editar Calificación -->
+
 <div class="modal fade" id="modalEditarCalificacion" tabindex="-1" aria-labelledby="modalEditarCalificacionLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -223,7 +223,7 @@
                         <div class="invalid-feedback"></div>
                     </div>
                     
-                    <!-- Preview del nivel -->
+                    
                     <div class="mb-3" id="editPreviewNivel">
                         <label class="form-label fw-semibold">Nivel de aprobación:</label>
                         <div id="editNivelPreview"></div>
@@ -247,7 +247,7 @@
 @endsection
 
 @push('JS')
-<!-- DataTables JS -->
+
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 

@@ -7,7 +7,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <!-- Header -->
+            
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div>
                     <h2 class="fw-bold text-warning mb-1">
@@ -23,7 +23,7 @@
                     </a>
                 </div>
             </div>
-            <!-- Formulario -->
+            
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="card">
@@ -38,7 +38,7 @@
                                 @csrf
                                 @method('PUT')
 
-                                <!-- Información actual -->
+                                
                                 <div class="alert alert-info mb-4">
                                     <div class="d-flex align-items-center">
                                         <i class="bi bi-info-circle-fill me-2"></i>
@@ -55,7 +55,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Nombre -->
+                                
                                 <div class="mb-4">
                                     <label for="nombre" class="form-label fw-semibold">
                                         <i class="bi bi-book text-primary me-1"></i>
@@ -77,7 +77,7 @@
                                         Modifica el nombre de la materia (máximo 255 caracteres)
                                     </div>
                                 </div>
-                                <!-- Ejemplos sugeridos -->
+                                
                                 <div class="mb-4">
                                     <label class="form-label fw-semibold">Ejemplos comunes:</label>
                                     <div class="d-flex flex-wrap gap-2">
@@ -102,12 +102,12 @@
                                     </div>
                                     <small class="text-muted">Haz clic en cualquier ejemplo para usarlo</small>
                                 </div>
-                                <!-- Preview de la materia -->
+                                
                                 <div class="mb-4" id="previewMateria">
                                     <label class="form-label fw-semibold">Vista previa:</label>
                                     <div id="materiaPreview"></div>
                                 </div>
-                                <!-- Advertencia si tiene relaciones -->
+                                
                                 @if(($materia->materiasXUsuarios?->count() ?? 0) > 0 || ($materia->calificaciones?->count() ?? 0) > 0)
                                 <div class="alert alert-warning mb-4">
                                     <div class="d-flex align-items-start">
@@ -126,7 +126,7 @@
                                     </div>
                                 </div>
                                 @endif
-                                <!-- Botones -->
+                                
                                 <div class="d-flex justify-content-end gap-2">
                                     <a href="{{ route('materias.index') }}" class="btn btn-secondary">
                                         <i class="bi bi-x-circle me-1"></i>

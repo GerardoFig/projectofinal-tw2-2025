@@ -6,7 +6,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <!-- Header -->
+            
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div>
                     <h2 class="fw-bold text-warning mb-1">
@@ -23,7 +23,7 @@
                 </div>
             </div>
 
-            <!-- Formulario -->
+            
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">

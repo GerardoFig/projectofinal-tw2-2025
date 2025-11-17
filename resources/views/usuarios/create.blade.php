@@ -6,7 +6,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <!-- Header -->
+            
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div>
                     <h2 class="fw-bold text-success mb-1">
@@ -23,7 +23,7 @@
                 </div>
             </div>
 
-            <!-- Formulario -->
+            
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
@@ -38,7 +38,7 @@
                                 @csrf
                                 
                                 <div class="row">
-                                    <!-- Username -->
+                                    
                                     <div class="col-md-6 mb-3">
                                         <label for="username" class="form-label fw-semibold">
                                             <i class="bi bi-person text-primary me-1"></i>
@@ -56,11 +56,11 @@
                                         @enderror
                                     </div>
                                     
-                                    <!-- Email -->
+                                    
                                     <div class="col-md-6 mb-3">
                                         <label for="email" class="form-label fw-semibold">
                                             <i class="bi bi-envelope text-primary me-1"></i>
-                                            Email <span class="text-danger">*</span>
+                                            Correo Electronico <span class="text-danger">*</span>
                                         </label>
                                         <input type="email" 
                                                class="form-control @error('email') is-invalid @enderror" 
@@ -76,7 +76,7 @@
                                 </div>
                                 
                                 <div class="row">
-                                    <!-- Contraseña -->
+                                    
                                     <div class="col-md-6 mb-3">
                                         <label for="password" class="form-label fw-semibold">
                                             <i class="bi bi-lock text-primary me-1"></i>
@@ -98,7 +98,7 @@
                                         @enderror
                                     </div>
                                     
-                                    <!-- Confirmar Contraseña -->
+                                    
                                     <div class="col-md-6 mb-3">
                                         <label for="password_confirmation" class="form-label fw-semibold">
                                             <i class="bi bi-lock-fill text-primary me-1"></i>
@@ -118,7 +118,7 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Tipo de Usuario -->
+                                
                                 <div class="mb-4">
                                     <label for="tipos_id" class="form-label fw-semibold">
                                         <i class="bi bi-person-badge text-primary me-1"></i>
@@ -146,7 +146,7 @@
                                     @enderror
                                 </div>
                                 
-                                <!-- Botones -->
+                                
                                 <div class="d-flex justify-content-end gap-2">
                                     <a href="{{ route('usuarios.index') }}" class="btn btn-secondary">
                                         <i class="bi bi-x-circle me-1"></i>

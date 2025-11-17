@@ -88,10 +88,10 @@ class AccesoController extends Controller
         switch ($tipoUsuario) {
             case 'admin':
             case 'profesor':
-                // Admin y profesores van al dashboard de usuarios
+                
                 return redirect()->route('usuarios.index');
             case 'estudiante':
-                // Estudiantes van directamente a sus materias asignadas
+                
                 return redirect()->route('materiasxusuario.index', $usuario->id);
             default:
                 Auth::logout();

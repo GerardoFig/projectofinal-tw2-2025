@@ -15,7 +15,7 @@ class CalificacionController extends Controller
     public function index($usuario_id, $materia_id){
         $usuario = User::with('tipo')->findOrFail($usuario_id);
         $materia = Materia::findOrFail($materia_id);
-        // Verificar que la materia esté asignada al usuario
+        
         $asignacion = MateriasXUsuario::where('users_id', $usuario_id)
         ->where('materias_id', $materia_id)
         ->first();
@@ -23,11 +23,11 @@ class CalificacionController extends Controller
             return redirect()->route('materiasxusuario.index', $usuario_id)
             ->with('error', 'Esta materia no está asignada al usuario');
         }
-        // Obtener calificaciones usando la relación correcta
+        
         $calificaciones = Calificacion::where('materias_x_usuarios_id', $asignacion->id)
         ->orderBy('id', 'desc')
         ->get();
-        // Calcular promedio
+        
         $promedio = $calificaciones->avg('calificacion');
         $promedio = $promedio ? round($promedio, 2) : 0;
         return view('calificaciones.index', compact('usuario', 'materia', 'calificaciones', 'promedio', 'asignacion'));
@@ -54,7 +54,7 @@ class CalificacionController extends Controller
             ->withInput();
         }
         try{
-            // Obtener la asignación materias_x_usuarios
+            
             $asignacion = MateriasXUsuario::where('users_id', $usuario_id)
             ->where('materias_id', $materia_id)
             ->first();
@@ -124,7 +124,7 @@ class CalificacionController extends Controller
                     'message' => 'Calificación actualizada correctamente'
                 ]);
             }
-            // Obtener usuario_id y materia_id para redireccionar
+            
             $asignacion = $calificacion->materiasXUsuario;
             return redirect()
             ->route('calificaciones.index', [$asignacion->users_id, $asignacion->materias_id])

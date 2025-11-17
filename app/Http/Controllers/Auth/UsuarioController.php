@@ -17,20 +17,20 @@ class UsuarioController extends Controller
     public function index(){
         $usuarioActual = Auth::user();
         $tipoUsuario = $usuarioActual->tipo->tipo;
-        // Consulta base con relación tipo
+      
         $query = User::with('tipo');
         if( $tipoUsuario === 'admin' ){
-            // Admin ve todos los usuarios
+       
             $usuarios = $query->get();
         }
         elseif( $tipoUsuario === 'profesor' ){
-            // Profesor solo ve estudiantes
+
             $usuarios = $query->whereHas('tipo', function($q) {
                 $q->where('tipo', 'estudiante');
             })->get();
         }
         else{
-            // Estudiantes no deberían acceder aquí
+            
             abort(403, 'No tienes permisos para acceder a esta sección.');
         }
         return view('usuarios.index', compact('usuarios'));
@@ -107,13 +107,13 @@ class UsuarioController extends Controller
     }
     public function update(Request $request, $id){
         $usuario = User::findOrFail($id);
-        // Reglas de validación
+        
         $rules = [
             'username' => 'required|string|max:255|unique:users,username,' . $id,
             'email' => 'required|string|email|max:255|unique:users,email,' . $id,
             'tipos_id' => 'required|exists:tipos,id'
         ];
-        // Si se va a cambiar la contraseña
+       
         if( $request->filled('password') ){
             $rules['password'] = 'required|string|min:6|confirmed';
         }
@@ -149,7 +149,7 @@ class UsuarioController extends Controller
                 'tipos_id' => $request->tipos_id
             ];
               
-            // Solo actualizar contraseña si se proporcionó
+            
             if( $request->filled('password') ){
                 $data['password'] = Hash::make($request->password);
             }

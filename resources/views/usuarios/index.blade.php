@@ -11,7 +11,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <!-- Header -->
+            
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div>
                     <h2 class="fw-bold text-primary mb-1">
@@ -28,7 +28,7 @@
                 </div>
             </div>
 
-            <!-- Tabla de Usuarios -->
+            
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
@@ -68,21 +68,21 @@
                                     </td>
                                     <td>
                                         <div class="btn-group" role="group">
-                                            <!-- Botón Editar -->
+                                            
                                             <button type="button" class="btn btn-sm btn-outline-warning" 
                                                     onclick="editarUsuario({{ $usuario->id }})"
                                                     title="Editar usuario">
                                                 <i class="bi bi-pencil-square"></i>
                                             </button>
                                             
-                                            <!-- Botón Eliminar -->
+                                            
                                             <button type="button" class="btn btn-sm btn-outline-danger" 
                                                     onclick="eliminarUsuario({{ $usuario->id }}, '{{ $usuario->username }}')"
                                                     title="Eliminar usuario">
                                                 <i class="bi bi-trash"></i>
                                             </button>
                                             
-                                            <!-- Botón Materias (Solo admin y profesores pueden gestionar) -->  
+                                              
                                             @if($usuario->tipo->tipo === 'estudiante')
                                                 <button type="button" class="btn btn-sm btn-outline-info"   
                                                         onclick="gestionarMaterias({{ $usuario->id }})"  
@@ -111,7 +111,7 @@
 
 <script>
     function editarUsuario(id){
-        // Redirigir a la página de edición
+        
         window.location.href = `{{ route('usuarios.index') }}/${id}/edit`;
     }
     
@@ -127,7 +127,7 @@
             cancelButtonText: "Cancelar"
         }).then((result) => {
             if (result.isConfirmed) {
-                // Crear formulario para eliminar
+                
                 const form = $("<form>", {
                     "method": "POST",
                     "action": `{{ route('usuarios.index') }}/${id}`
@@ -152,7 +152,7 @@
     }
     
     function gestionarMaterias(id){
-        // Redirigir a la gestión de materias del estudiante
+        
         window.location.href = `{{ url('materiasxusuario') }}/${id}`;
     }
 </script>
