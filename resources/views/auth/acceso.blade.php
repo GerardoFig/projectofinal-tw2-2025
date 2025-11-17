@@ -42,7 +42,7 @@
                             <h3 class="fw-bold text-primary">Iniciar Sesión</h3>
                             <p class="text-muted">Ingresa tus credenciales para acceder</p>
                         </div>
-                        <form id="frmAcceso" method="POST" action="{{ route('login.attempt') }}">
+                        <form id="frmAcceso" method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="mb-3">
                                 <label for="email" class="form-label fw-semibold">
