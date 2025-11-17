@@ -60,7 +60,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="email" class="form-label fw-semibold">
                                             <i class="bi bi-envelope text-primary me-1"></i>
-                                            Correo Electronico <span class="text-danger">*</span>
+                                            Correo  Electronico <span class="text-danger">*</span>
                                         </label>
                                         <input type="email" 
                                                class="form-control @error('email') is-invalid @enderror" 
